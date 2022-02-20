@@ -10,7 +10,7 @@ def right(i):
     return 2 * i + 1
 
 
-def heapify(arr, n, i):
+def heapify(arr, n, i): # O(logn)
     max = i
     l = left(i)
     r = right(i)
@@ -26,7 +26,7 @@ def heapify(arr, n, i):
         heapify(arr, n, max)
 
 
-def build_max_heap(arr):
+def build_max_heap(arr): # O(n*logn)
     n = len(arr)
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i)
@@ -38,13 +38,13 @@ def heap_extract_max(arr, i):
 
 
 def heapsort(arr):
-    build_max_heap(arr)
+    build_max_heap(arr) # O(n*logn)
 
-    n = len(arr)
+    n = len(arr) 
     result = [None] * n
 
-    while n > 0:
-        result[n - 1] = heap_extract_max(arr, n - 1)
+    while n > 0: # O(n*logn)
+        result[n - 1] = heap_extract_max(arr, n - 1) # O(logn)
         n -= 1
 
 
